@@ -1,7 +1,11 @@
+import React from "react";
+
+import {ShopContext} from "../context";
+
 import {BasketItem} from "./BasketItem";
 
-export const BasketList = (props) => {
-    const { order = [], handleBasketShow, removeFromBasket, addQuantity, removeQuantity } = props;
+export const BasketList = () => {
+    const { order, handleBasketShow } = React.useContext(ShopContext);
 
     return <ul className="collection basket-list">
         <li className="collection-item active">Корзина</li>
@@ -9,9 +13,6 @@ export const BasketList = (props) => {
                 ? order.map(item => <BasketItem
                         key={item.offerId}
                         {...item}
-                        removeFromBasket={removeFromBasket}
-                        addQuantity={addQuantity}
-                        removeQuantity={removeQuantity}
                 />)
                 : null
         }

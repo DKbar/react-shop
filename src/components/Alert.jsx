@@ -1,7 +1,9 @@
 import React from "react";
 
-export const Alert = (props) => {
-    const { name, closeAlert } = props;
+import {ShopContext} from "../context";
+
+export const Alert = () => {
+    const { alertName, closeAlert } = React.useContext(ShopContext);
 
     React.useEffect(
             () => {
@@ -14,6 +16,6 @@ export const Alert = (props) => {
     )
 
     return <div id="toast-container">
-        <div className='toast'>{name}</div>
+        <div className='toast'>{alertName} добавлен в корзину</div>
     </div>
 }
